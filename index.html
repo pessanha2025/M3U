@@ -1,16 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leitor M3U</title>
+    <title>ODIN PLAY</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Leitor de Lista M3U</h1>
-    <input type="file" id="fileInput" accept=".m3u">
-    <ul id="playlist"></ul>
-    <video id="videoPlayer" controls width="600"></video>
+    <header>
+        <div class="logo">ODIN PLAY</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="active">Início</a></li>
+                <li><a href="#">Canais</a></li>
+                <li><a href="#">Minha Lista</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <img src="https://via.placeholder.com/40" alt="User Profile" class="profile-pic">
+        </div>
+    </header>
+
+    <main>
+        <div class="content-tabs">
+            <div class="tabs">
+                <button class="tab-button active" data-category="all">Todos</button>
+                <button class="tab-button" data-category="tv">TV ao Vivo</button>
+                <button class="tab-button" data-category="series">Séries</button>
+                <button class="tab-button" data-category="movies">Filmes</button>
+            </div>
+
+            <div class="category-filter">
+                <select id="groupFilter" class="group-filter">
+                    <option value="all">Todas as Categorias</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="upload-section">
+            <h2>Carregar Lista M3U</h2>
+            <div class="upload-container">
+                <label for="fileInput" class="file-input-label">
+                    <span class="upload-icon">📁</span>
+                    Escolher arquivo
+                </label>
+                <input type="file" id="fileInput" accept=".m3u,.m3u8" class="file-input">
+                <span id="fileName" class="file-name"></span>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div id="contentGrid" class="content-grid"></div>
+        </section>
+    </main>
+
+    <div class="player-wrapper">
+        <div class="player-container">
+            <div class="player-header">
+                <span id="nowPlaying">Now Playing</span>
+                <button id="closePlayer" class="close-button">×</button>
+            </div>
+            <div class="player-section">
+                <video id="videoPlayer" controls playsinline></video>
+                <div id="error-message" class="error-message"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
